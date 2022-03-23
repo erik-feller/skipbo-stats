@@ -1,4 +1,7 @@
 mod card;
+mod board;
+mod player;
+mod error;
 
 use rand::thread_rng;
 use rand::seq::SliceRandom;
@@ -6,6 +9,7 @@ use rand::seq::SliceRandom;
 use std::iter;
 use crate::card::Card;
 use crate::card::Suit;
+use crate::board::Board;
 
 fn main() {
     let mut deck = Vec::new();
@@ -21,4 +25,7 @@ fn main() {
     }
 
     deck.shuffle(&mut thread_rng());
+
+    let test_str = String::from(format!("this is a test of the {var} substitution", var = "variable"));
+    println!("{}", test_str);
 }
