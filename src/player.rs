@@ -10,11 +10,11 @@ pub struct Player {
 }
 
 impl Player {
-    fn new(&mut self, game_pile: Vec<Card>) -> &mut Player {
-        self.game_pile = game_pile;
-        self.discard_piles = Vec::new();
-        self.hand = Vec::new();
-        return self;
+    fn new(game_pile: Vec<Card>) -> Player {
+        game_pile = game_pile;
+        discard_piles = Vec::new();
+        hand = Vec::new();
+        return Self{ hand, discard_piles, game_pile};
     }
 
     fn deal(&mut self, card: Card) -> Result<(), SkipBoError> {
