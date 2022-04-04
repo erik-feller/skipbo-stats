@@ -11,9 +11,8 @@ pub struct Player {
 
 impl Player {
     fn new(game_pile: Vec<Card>) -> Player {
-        game_pile = game_pile;
-        discard_piles = Vec::new();
-        hand = Vec::new();
+        let discard_piles = vec![];
+        let hand = vec![];
         return Self{ hand, discard_piles, game_pile};
     }
 
@@ -23,6 +22,19 @@ impl Player {
         }
         self.hand.push(card);
         return Ok(());
+    }
+
+    fn discard(&mut self, pile: usize, card: Card) -> Result<(), SkipBoError> {
+        if pile > 3 {
+            return Err(SkipBoError::OverfullHand)
+        }
+        while self.discard_piles.len() < pile+1 {
+            self.discard_piles.push(vec![])
+        }
+
+        self.discard_piles[pile].push(card);
+        return Ok(())
+
     }
 
 }

@@ -15,6 +15,6 @@ fn main() {
     let test_str = String::from(format!("this is a test of the {var} substitution", var = "variable"));
     match board_test {
         Ok(b) => println!("{}", b),
-        Err(e) => println!("{}", e),
+        Err(e) => eprintln!("{}", e),
     }
 }
