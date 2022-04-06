@@ -13,6 +13,7 @@ use crate::board::Board;
 fn main() {
     let board_test = Board::new(4);
     let test_str = String::from(format!("this is a test of the {var} substitution", var = "variable"));
+
     match board_test {
         Ok(b) => println!("{}", b),
         Err(e) => eprintln!("{}", e),
